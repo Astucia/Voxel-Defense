@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bu1woi2cbal8y"]
+
+[ext_resource type="Script" uid="uid://htbgic1u1tyo" path="res://Enemigos/enemigo.gd" id="1_6loxa"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nihwd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0dvxo"]
+size = Vector3(0.6, 0.2, 0.6)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6loxa"]
+
+[node name="Enemigo" type="PathFollow3D" unique_id=1628923201]
+transform = Transform3D(0.04680865, 0.0028743856, 0.99886864, -1.1641401e-10, 0.99998224, -0.0028774894, -0.9988926, 0.00013469516, 0.046807524, 0, 0, 0)
+use_model_front = true
+script = ExtResource("1_6loxa")
+
+[node name="CuerpoEnemigo" type="MeshInstance3D" parent="." unique_id=1807978464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("CapsuleMesh_nihwd")
+
+[node name="Ojos" type="MeshInstance3D" parent="CuerpoEnemigo" unique_id=1805958001]
+transform = Transform3D(1, 0, 0, 0, 1, 9.777068e-11, 0, -4.956746e-11, 1, 0.14900303, 0.47116065, 0.31483078)
+mesh = SubResource("BoxMesh_0dvxo")
+
+[node name="EnemyArea3D" type="Area3D" parent="." unique_id=948836696 groups=["EnemyArea"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyArea3D" unique_id=1072277606]
+transform = Transform3D(1, 0, 0, 0, 1, 9.777068e-11, 0, 8.594725e-11, 1, 0, 2, 0)
+shape = SubResource("CapsuleShape3D_6loxa")
+
+[node name="lblVida" type="Label3D" parent="." unique_id=594657747]
+transform = Transform3D(1, 0, 0, 0, 1, 9.777068e-11, 0, 8.594725e-11, 1, -3.4201644e-10, 3.3574426, -0.009661515)
+billboard = 1
+text = "100"
+font_size = 100

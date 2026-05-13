@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://btb38x5a0c8bs"]
+
+[ext_resource type="Script" uid="uid://cipu6uy6orqna" path="res://Niveles/nivel_procedural.gd" id="1_51wjq"]
+[ext_resource type="PackedScene" uid="uid://ba4mmqu4b4vdr" path="res://Camara/camera_picker.tscn" id="2_dujeb"]
+[ext_resource type="PackedScene" uid="uid://ca7nq65admqpj" path="res://Herramientas/grid_procedural.tscn" id="2_klnam"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ry3ck"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_51wjq"]
+sky_material = SubResource("ProceduralSkyMaterial_ry3ck")
+
+[sub_resource type="Environment" id="Environment_klnam"]
+background_mode = 2
+sky = SubResource("Sky_51wjq")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dujeb"]
+albedo_color = Color(0.0011781777, 0, 0.12622666, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fadfu"]
+material = SubResource("StandardMaterial3D_dujeb")
+size = Vector3(60, 0.5, 60)
+
+[node name="NivelProcedural" type="Node3D" unique_id=826046316]
+script = ExtResource("1_51wjq")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1589010800]
+environment = SubResource("Environment_klnam")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1172008531]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CameraPicker" parent="." unique_id=528927108 instance=ExtResource("2_dujeb")]
+transform = Transform3D(1, 0, 0, 0, 0.70448554, 0.70971835, 0, -0.70971835, 0.70448554, 0, 26.011673, 26.531084)
+
+[node name="PisoReferencia" type="MeshInstance3D" parent="." unique_id=2915972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+mesh = SubResource("BoxMesh_fadfu")
+
+[node name="Terreno" parent="." unique_id=1703708314 instance=ExtResource("2_klnam")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2098264882]
+
+[node name="lblLoceta" type="Label" parent="CanvasLayer" unique_id=1226756669]
+offset_left = 35.0
+offset_top = 14.0
+offset_right = 75.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[connection signal="celda_seleccionada" from="CameraPicker" to="." method="_on_camera_picker_celda_seleccionada"]

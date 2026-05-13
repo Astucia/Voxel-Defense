@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b7reuf0tc2bde"]
+
+[ext_resource type="Script" uid="uid://5uukysnjbapl" path="res://Torre/torre.gd" id="1_f626c"]
+[ext_resource type="PackedScene" uid="uid://ddehvep4cxdtu" path="res://Torre/proyectil.tscn" id="2_wqcki"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5n7gq"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5n7gq"]
+material = SubResource("StandardMaterial3D_5n7gq")
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f626c"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f626c"]
+material = SubResource("StandardMaterial3D_f626c")
+top_radius = 0.7
+bottom_radius = 0.7
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqcki"]
+albedo_color = Color(0.4506483, 0.4506483, 0.45064825, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wqcki"]
+material = SubResource("StandardMaterial3D_wqcki")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.0
+
+[node name="Torre" type="Node3D" unique_id=2114178838]
+script = ExtResource("1_f626c")
+bala = ExtResource("2_wqcki")
+
+[node name="BaseTorre" type="MeshInstance3D" parent="." unique_id=1661553238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_5n7gq")
+
+[node name="BaseSuperior" type="MeshInstance3D" parent="." unique_id=2115250446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18, 0)
+mesh = SubResource("CylinderMesh_f626c")
+
+[node name="Canion" type="MeshInstance3D" parent="." unique_id=1042647149]
+transform = Transform3D(1.9106855e-15, -4.3711385e-08, -0.99999994, -1, -4.3711385e-08, 0, -4.371139e-08, 0.99999994, -4.3711385e-08, 0, 1.216, 0.565)
+mesh = SubResource("CylinderMesh_wqcki")
+
+[node name="TimerDisparo" type="Timer" parent="." unique_id=363487277]
+autostart = true
+
+[connection signal="timeout" from="TimerDisparo" to="." method="_on_timer_disparo_timeout"]

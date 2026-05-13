@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dlhm03b4pq2xl"]
+
+[ext_resource type="Script" uid="uid://dnmpsmoet5svh" path="res://Castillo/castillo_rojo.gd" id="1_5en2t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nihwd"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0dvxo"]
+material = SubResource("StandardMaterial3D_nihwd")
+top_radius = 3.0
+bottom_radius = 3.0
+height = 4.0
+
+[node name="CastilloRojo" type="MeshInstance3D" unique_id=1589760427 groups=["Castillo"]]
+mesh = SubResource("CylinderMesh_0dvxo")
+script = ExtResource("1_5en2t")
+
+[node name="lblVida" type="Label3D" parent="." unique_id=880831280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9440641, 0)
+billboard = 1
+text = "100 / 100
+"
+font_size = 300

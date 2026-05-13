@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ddehvep4cxdtu"]
+
+[ext_resource type="Script" uid="uid://ktyxoh1ov037" path="res://Torre/proyectil.gd" id="1_md1es"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rk5p6"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_md1es"]
+material = SubResource("StandardMaterial3D_rk5p6")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rk5p6"]
+
+[node name="Proyectil" type="Area3D" unique_id=1556559180]
+top_level = true
+script = ExtResource("1_md1es")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1122381032]
+mesh = SubResource("SphereMesh_md1es")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1373219429]
+shape = SubResource("SphereShape3D_rk5p6")
+
+[node name="Timer" type="Timer" parent="." unique_id=1802322591]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

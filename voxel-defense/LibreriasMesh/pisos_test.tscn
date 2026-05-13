@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://tdol62vmb8nv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8xoib"]
+size = Vector3(2, 0.25, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8xoib"]
+size = Vector3(2, 0.25, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uw7s"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8uw7s"]
+material = SubResource("StandardMaterial3D_8uw7s")
+size = Vector3(2, 0.25, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8uw7s"]
+size = Vector3(2, 0.25, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xoib"]
+albedo_color = Color(0.244335, 0.5915273, 0.99999994, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_reouu"]
+material = SubResource("StandardMaterial3D_8xoib")
+size = Vector3(2, 0.25, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dngce"]
+size = Vector3(2, 0.25, 2)
+
+[node name="pisos_test" type="Node3D" unique_id=2146245362]
+
+[node name="PisoGeneral" type="MeshInstance3D" parent="." unique_id=1474573677]
+mesh = SubResource("BoxMesh_8xoib")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PisoGeneral" unique_id=1849469801]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PisoGeneral/StaticBody3D" unique_id=148290062]
+shape = SubResource("BoxShape3D_8xoib")
+
+[node name="PisoReferencia" type="MeshInstance3D" parent="." unique_id=574890079]
+mesh = SubResource("BoxMesh_8uw7s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PisoReferencia" unique_id=1289206520]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PisoReferencia/StaticBody3D" unique_id=650167639]
+shape = SubResource("BoxShape3D_8uw7s")
+
+[node name="PisoRaro" type="MeshInstance3D" parent="." unique_id=381061853]
+mesh = SubResource("BoxMesh_reouu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PisoRaro" unique_id=864859824]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PisoRaro/StaticBody3D" unique_id=554731544]
+shape = SubResource("BoxShape3D_dngce")
