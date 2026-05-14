@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://byfpeqebduvjl"]
+
+[ext_resource type="Script" uid="uid://d0diril6w7f1s" path="res://Niveles/camino_principal.gd" id="1_yebkn"]
+
+[sub_resource type="Curve3D" id="Curve3D_djqg0"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -25.513203, 0, 13.973327, -0.8, 0, 1.5, 0.8, 0, -1.5, 10, -0.1, 14.1, 0.7, 0, 0.7, -0.7, 0, -0.7, 9.7148905, 0, 6.5047073, 0.5, 0, 0.5, -0.5, 0, -0.5, -13.616288, 0, 6.108143, -0.5, 0, 0.5, 0.5, 0, -0.5, -13.946757, 0, -1.9553232, -0.6, 0, 0.5, 0.6, 0, -0.5, 9.979264, 0, -2.2857933, 0.5, 0, 0.6, -0.5, 0, -0.6, 9.979264, 0, -9.754415, 0.6, 0, 0.5, -0.6, 0, -0.5, -9.708152, 0, -9.622226, 0, 0, 0, 0, 0, 0, -10.245494, 0, -13.918334),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
+
+[node name="CaminoPrincipal" type="Path3D" unique_id=9871635]
+curve = SubResource("Curve3D_djqg0")
+script = ExtResource("1_yebkn")
+
+[node name="Camino" type="CSGPolygon3D" parent="." unique_id=1498072616]
+polygon = PackedVector2Array(-2, 0, -2, 0.5, 1.5, 0.5, 1.5, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="LimiteDerecho" type="CSGPolygon3D" parent="." unique_id=1255613370]
+polygon = PackedVector2Array(1.4, 0, 1.695, 0.7, 2, 0.7, 2, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Timer" type="Timer" parent="." unique_id=499197331]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

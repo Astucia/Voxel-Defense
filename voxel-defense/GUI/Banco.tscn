@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dgjvqh5yugg30"]
+
+[ext_resource type="Script" uid="uid://d0is7d7hr67ff" path="res://GUI/banco.gd" id="1_4rsce"]
+
+[node name="Banco" type="Control" unique_id=140619842 groups=["Banco"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 607.0
+offset_bottom = 56.0
+script = ExtResource("1_4rsce")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=284162645]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="lblOro" type="Label" parent="HBoxContainer" unique_id=49975880]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8862745, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Oro: $"
+
+[node name="txtOroActual" type="Label" parent="HBoxContainer" unique_id=98559017]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8862745, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "100"

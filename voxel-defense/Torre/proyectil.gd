@@ -28,7 +28,7 @@ func _on_area_entered(area: Area3D) -> void:
 	
 	var enemy = area.get_parent()
 	if enemy is enemigo:
-		enemy.vida -= hp
+		enemy._impacto(hp)
 		queue_free()
 		
 	pass # Replace with function body.

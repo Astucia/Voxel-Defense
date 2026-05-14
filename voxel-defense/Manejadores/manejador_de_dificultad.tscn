@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://co1m5uhvhndr3"]
+
+[ext_resource type="Script" uid="uid://c8outa2061h1u" path="res://Manejadores/manejador_de_dificultad.gd" id="1_v341t"]
+
+[sub_resource type="Curve" id="Curve_v341t"]
+_limits = [0.75, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 3), 0.0, -2.2891986, 0, 1, Vector2(0.9828767, 0.75), -2.2891986, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_xp0a4"]
+_limits = [10.0, 50.0, 0.0, 1.0]
+_data = [Vector2(0, 10), 0.0, 40.0, 0, 1, Vector2(1, 50), 40.0, 0.0, 1, 0]
+point_count = 2
+
+[node name="manejador_de_dificultad" type="Node" unique_id=1614043530]
+script = ExtResource("1_v341t")
+curva_spawn = SubResource("Curve_v341t")
+curva_vida = SubResource("Curve_xp0a4")
+
+[node name="Timer" type="Timer" parent="." unique_id=273560617]

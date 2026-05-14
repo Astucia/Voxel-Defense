@@ -3,9 +3,13 @@ class_name torre
 
 @onready var timer_disparo: Timer = $TimerDisparo
 @onready var base_superior: MeshInstance3D = $BaseSuperior
+@onready var nodo_disparo: Node3D = $NodoDisparo
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var bala : PackedScene
 @export var rango_disparo := 10.0
+
+@export var costo_torre: int = 100
 
 var camino_enemigos : Path3D
 var objetivo : PathFollow3D
@@ -21,15 +25,17 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_disparo_timeout() -> void:
 	if objetivo:
-		_disparo()
+		animation_player.play("disparando")
+		#_disparo()
 		
 	pass # Replace with function body.
 
 func _disparo():
 	var nBala = bala.instantiate()
 	add_child(nBala)
-	nBala.global_position = base_superior.global_position
+	nBala.global_position = nodo_disparo.global_position
 	nBala.direccion = global_transform.basis.z
+	
 
 func _encuentra_objetivo() -> PathFollow3D :
 	var mejor_objetivo = null
